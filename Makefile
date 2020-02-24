@@ -1,3 +1,7 @@
+.PHONY: clean all
+
+all: challenge test 
+
 objects = challenge.o test.o
 
 challenge : challenge.o 
