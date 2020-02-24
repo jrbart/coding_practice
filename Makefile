@@ -1,4 +1,4 @@
-.PHONY: clean all
+.PHONY: clean all git
 
 all: challenge test 
 
@@ -21,3 +21,7 @@ clean :
 	- rm *.o
 	- rm test
 	- rm challenge
+
+git :
+	git add .
+	git commit
