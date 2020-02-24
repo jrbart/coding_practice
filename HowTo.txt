@@ -1,0 +1,4 @@
+ 9589  gcc -g -c challenge.c
+ 9590  objcopy --redefine-sym main=test_me challenge.o
+ 9591  gcc -g -c t/test.c
+ 9592  ./test
