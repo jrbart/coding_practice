@@ -10,7 +10,7 @@ challenge : challenge.o
 challenge.o : challenge.c
 	gcc -c challenge.c
 
-test.o :
+test.o : t/test.c
 	gcc -c t/test.c
 
 test : challenge.o test.o
