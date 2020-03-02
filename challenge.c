@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#define __USE_XOPEN
 #include <time.h>
 
 /* struct tm {
@@ -15,9 +17,15 @@
 };
 */
 
-int str_to_tm(char * str, struct tm * tm)
+char * str_to_tm(char * str_p, struct tm * tm_p)
 {
-    return 0;
+    char * pos_p;
+
+    /* Clear the time struct */
+    memset(tm_p, 0, sizeof(struct tm));
+    /* Read date if it is in string */
+    pos_p = strptime(str_p, "%F", tm_p);
+    return pos_p;
 }
 
 int main()
