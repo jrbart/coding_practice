@@ -20,12 +20,22 @@
 char * str_to_tm(char * str_p, struct tm * tm_p)
 {
     char * pos_p;
+    char * res;
 
     /* Clear the time struct */
     memset(tm_p, 0, sizeof(struct tm));
-    /* Read date if it is in string */
-    pos_p = strptime(str_p, "%F", tm_p);
-    return pos_p;
+
+    /* Read date-time if it is in ISO format */
+    res = strptime(str_p, "%t%F%t%R%t", tm_p);
+
+    if (!res) {
+        /* If returned non-null then.. */
+        /* Read time in 12 hour format */
+        res = strptime(str_p, "%t%R%t%p%t", tm_p);
+    }
+
+    /* should return null if all the string was read */
+    return res;
 }
 
 int main()

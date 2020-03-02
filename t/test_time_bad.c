@@ -17,9 +17,11 @@ int print_tm(struct tm * dt){
   
 /* function to convert a string to a time */
 
+/* These tests should fail */
+
 int test_str_to_tm1()
 {
-    char * tstring = "2020-02-29 11:01";
+    char * tstring = "2020-02-29 11:01 pm";
     struct tm dtime;
     char * err;
     
@@ -32,7 +34,7 @@ int test_str_to_tm1()
 
 int test_str_to_tm2()
 {
-    char * tstring = "11:01 pm";
+    char * tstring = "11:01";
     struct tm dtime;
     char * err;
     
@@ -45,11 +47,16 @@ int test_str_to_tm2()
 
 int main()
 {
-/* Run the main function in the program being tested. */
- /*  This requires using objcopy to rename "main" to "test_me" */
+/* Run the main function in the program being tested.
+   This requires using objcopy to rename "main" to "test_me"
 
    test_me(); 
    printf("%s\n","World");
-   
-   return 0;
+*/
+
+
+printf("%d\n",test_str_to_tm1());
+printf("%d\n",test_str_to_tm2());
+
+
 }

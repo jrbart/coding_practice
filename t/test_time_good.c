@@ -43,13 +43,11 @@ int test_str_to_tm2()
     return 0;
 }
 
+/* This requires using objcopy to rename "main" to "test_me" */
 int main()
 {
-/* Run the main function in the program being tested. */
- /*  This requires using objcopy to rename "main" to "test_me" */
+printf("%d\n",test_str_to_tm1());
+printf("%d\n",test_str_to_tm2());
 
-   test_me(); 
-   printf("%s\n","World");
-   
-   return 0;
+return 0;
 }
